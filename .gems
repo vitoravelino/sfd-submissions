@@ -1,0 +1,7 @@
+dm-core
+dm-sqlite-adapter
+dm-migrations
+dm-validations
+haml
+sass
+pony
