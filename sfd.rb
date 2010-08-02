@@ -8,11 +8,9 @@ require 'dm-migrations'
 require 'dm-validations'
 require 'haml'
 require 'sass'
-require 'rack-flash'
 require 'pony'
 
 configure do
-	use Rack::Flash
 	set :sessions, true
 end
 
