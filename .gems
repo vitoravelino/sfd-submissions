@@ -1,5 +1,6 @@
 sinatra
 dm-core
+dm-sqlite-adapter
 dm-postgres-adapter
 dm-migrations
 dm-validations
