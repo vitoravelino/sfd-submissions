@@ -1,0 +1,17 @@
+%h2 Garanta já seu espaço!
+
+- if @errors.present?
+	
+	%ul.errors
+		- @errors.each do |error|
+			%li= error[0]
+
+%p Preencha os campos abaixo:
+
+%form{:action => "/registration", :method => "post"}
+	%fieldset
+		%label{:for => "name"} Nome completo:
+		%input{:type => "text", :name => "name"}/
+		%label{:for => "email"} Email:
+		%input{:type => "text", :name => "email"}/
+		%input{:type => "submit", :value => "Inscrever-se!"}/

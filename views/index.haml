@@ -1,0 +1,25 @@
+!!! Strict
+%html
+	%head
+		%title Software Freedom Day 2010 - Campina Grande
+		%meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8'}/
+		%link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheet/application.css"}
+	%body
+		%h1 Software Freedom Day - Campina Grande
+		
+		- [:notice, :message].each do |key| 
+			- unless flash[key].blank? 
+				%p{:class => "flash_#{key}"}= flash[key] 
+
+		%p Parágrafo para apresentação.
+		%p O Software Freedom Day 2010 em Campina Grande será realizado na Universidade Federal de Campina Grande, UFCG, no Centro de Extensão José Farias.
+
+		.registration
+			%p Você sabe o que é o movimento do Software Livre? Você já participou de algum evento com este caráter? Você já colaborou com algum Software Livre ou evento do tipo? Não perca essa oportunidade:
+			%a{:href => "/registration", :class => "highlight"} Inscreva-se já!
+			%p #{@participants} inscritos até o momento!
+
+		.proposals
+			%p Você já está por dentro de tudo e gostaria de participar e colaborar com o evento palestrando? Não perca essa oportunidade:
+			%a{:href => "/presentation", :class => "highlight"} Submeta já!
+			%p #{@presentations} propostas até o momento!

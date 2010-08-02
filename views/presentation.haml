@@ -1,0 +1,21 @@
+%h2 Que tal palestrar no evento?
+
+- if @errors.present?
+	
+	%ul.errors
+		- @errors.each do |error|
+			%li= error
+
+%p Preencha o formulário abaixo:
+
+%form{:action => "/presentation", :method => "post"}
+	%fieldset
+		%label{:for => "author"} Nome completo:
+		%input{:type => "text", :name => "author"}/
+		%label{:for => "email"} Email:
+		%input{:type => "text", :name => "email"}/
+		%label{:for => "title"} Título da palestra:
+		%input{:type => "text", :name => "title"}/
+		%label{:for => "description"} Descrição:
+		%textarea{:name => "description"}
+		%input{:type => "submit", :value => "Submeta!"}/
