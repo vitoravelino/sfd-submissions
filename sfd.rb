@@ -3,18 +3,20 @@
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
-require 'dm-sqlite-adapter'
 require 'dm-migrations'
 require 'dm-validations'
+require 'rack-flash'
 require 'haml'
 require 'sass'
 require 'pony'
 
 configure do
 	set :sessions, true
+	use Rack::Flash
 end
 
 configure :development do
+	require 'dm-sqlite-adapter'
 	@db = "sqlite::memory:"
 end
 
