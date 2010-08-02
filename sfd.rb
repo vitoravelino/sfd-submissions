@@ -115,6 +115,5 @@ post '/presentation' do
 end
 
 get '/certificate' do
-	# TODO
 	haml :certificate
 end
