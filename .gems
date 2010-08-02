@@ -1,7 +1,7 @@
 dm-core
 dm-sqlite-adapter
+dm-postgres-adapter
 dm-migrations
 dm-validations
 haml
-sass
 pony
