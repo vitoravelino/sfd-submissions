@@ -21,7 +21,7 @@ configure :development do
 end
 
 configure :production do
-	@db = "postgres://usr:pwd@localhost"
+	@db = ENV['DATABASE_URL']
 
 	not_found do
 		haml "We're so sorry, but we don't know what is this."
