@@ -27,9 +27,9 @@ configure :production do
 		haml "We're so sorry, but we don't know what is this."
 	end
 
-	error do
-		haml "Something really nasty happened.  We're on it!"
-	end
+	#error do
+#		haml "Something really nasty happened.  We're on it!"
+#	end
 end
 
 DataMapper.setup(:default, @db)
