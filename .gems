@@ -4,5 +4,6 @@ dm-sqlite-adapter
 dm-postgres-adapter
 dm-migrations
 dm-validations
+rack-flash
 haml
 pony
