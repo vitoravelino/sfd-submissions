@@ -56,7 +56,7 @@ DataMapper.auto_upgrade!
 
 helpers do
 	def u(param)
-		param.force_encoding('utf-8')	unless param == nil
+		param.force_encoding(Encoding::UTF_8)	unless param == nil
 	end
 
 	def send_mail(email, type)
