@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
@@ -8,7 +6,6 @@ require 'dm-validations'
 require 'rack-flash'
 require 'haml'
 require 'sass'
-require 'pony'
 
 configure do
 	set :sessions, true
@@ -21,6 +18,7 @@ configure :development do
 end
 
 configure :production do
+	require 'pony'
 	@db = ENV['DATABASE_URL']
 
 	not_found do
@@ -87,10 +85,10 @@ get '/registration' do
 end
 
 post '/registration' do
-	participant = Participant.create(:email => u(params[:email]), :name => u(params[:name]))
+	participant = Participant.create(:email => params[:email], :name => params[:name])
 	if participant.save
 		flash[:notice] = "Você está inscrito para participar do SFD 2010 - Campina Grande!"
-		send_mail(participant.email, "Inscrição")
+		#send_mail(participant.email, "Inscrição")
 		redirect '/'
 	else
 		@errors = participant.errors
@@ -106,7 +104,7 @@ post '/presentation' do
 	presentation = Presentation.create(:author => u(params[:author]), :email => u(params[:email]), :title => u(params[:title]), :description => u(params[:description]))
 	if presentation.save
 		flash[:notice] = "Proposta de palestra submetida com sucesso!"
-		send_mail(presentation.email, "Submissão")
+		#send_mail(presentation.email, "Submissão")
 		redirect '/'
 	else
 		@errors = presentation.errors

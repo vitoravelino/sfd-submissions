@@ -1,6 +1,6 @@
 %h2 Garanta já seu espaço!
 
-- if @errors.present?
+- if !@errors.nil?
 	
 	%ul.errors
 		- @errors.each do |error|
