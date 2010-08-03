@@ -53,10 +53,6 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 helpers do
-	def u(param)
-		param.force_encoding(Encoding::UTF_8)	unless param == nil
-	end
-
 	def send_mail(email, type)
 		Pony.mail(:to => email, :from => 'sfdcg2010@email.com', :subject => "[SFD2010-CG] #{type} feita com sucesso!", :via => :smtp, :via_options => {
 			:address        => "smtp.sendgrid.net",
@@ -101,7 +97,7 @@ get '/presentation' do
 end
 
 post '/presentation' do
-	presentation = Presentation.create(:author => u(params[:author]), :email => u(params[:email]), :title => u(params[:title]), :description => u(params[:description]))
+	presentation = Presentation.create(:author => params[:author], :email => params[:email], :title => params[:title], :description => params[:description])
 	if presentation.save
 		flash[:notice] = "Proposta de palestra submetida com sucesso!"
 		#send_mail(presentation.email, "Submissão")
