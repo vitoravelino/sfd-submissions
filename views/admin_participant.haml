@@ -1,6 +1,6 @@
-%h2 Participantes presentes
+%h2 #{@participants.length} inscritos, #{@presents} presentes
 
-- if @confirmed_participants.empty?
+- if @participants.empty?
 	%p Nenhum até o momento.
 
 - else
@@ -9,26 +9,14 @@
 			%tr
 				%th Nome
 				%th Email
+				%th Presente?
 
 		%tbody
-			- @confirmed_participants.each do |participant|			
+			- @participants.each do |participant|			
 				%tr
 					%td= participant.name
 					%td= participant.email
+					%td
+						%input{:type => :checkbox, :id => participant.id, :class => "participant_check"}
 
-%h2 Participantes não presentes
-
-- if @other_participants.empty?
-	%p Nenhum até o momento.
-
-- else
-	%table
-		%thead
-			%tr
-				%th Nome
-				%th Email
-		%tbody
-			- @other_participants.each do |participant|
-				%tr
-					%td= participant.name
-					%td= participant.email
+%script{:type => "type/javascript", :src => "/js/participants.js"}

@@ -34,7 +34,8 @@ DataMapper.setup(:default, @db)
 
 class Participant
 	include DataMapper::Resource
-	property :email, String, :key => true, :unique => true, :format => :email_address
+	property :id, Serial
+	property :email, String, :unique => true, :format => :email_address
 	property :name, String, :required => true
 	property :present, Boolean, :default => false
 end
@@ -109,14 +110,14 @@ post '/presentation' do
 end
 
 get '/admin/presentation' do
-	@confirmed_presentations = Presentation.all(:confirmed => true)
-	@other_presentations = Presentation.all(:confirmed => false)
+	@presentations = Presentation.all(:order => [ :confirmed.desc, :title.asc ])
+	@confirmed = Presentation.all(:confirmed => true).length
 	haml :admin_presentation
 end
 
 get '/admin/participant' do
-	@confirmed_participants = Participant.all(:present => true)
-	@other_participants = Participant.all(:present => false)
+	@participants = Participant.all(:order => [ :present.desc, :name.asc ])
+	@presents = Participant.all(:present => true).length
 	haml :admin_participant
 end
 

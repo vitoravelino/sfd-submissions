@@ -1,27 +1,22 @@
-%h2 Palestras confirmadas
+%h2 #{@presentations.length} submissões, #{@confirmed} aceitas
 
-- if @confirmed_presentations.empty?
+- if @presentations.empty?
 	%p Nenhuma até o momento.
 
 - else
 	%table
-	
+		%thead
+			%tr
+				%th Título
+				%th Palestrante
+				%th Confirmada?
 		%tbody
-			- @confirmed_presentations.each do |presentation|			
+			- @presentations.each do |presentation|			
 				%tr
 					%td
 						%a{:href => "/presentation/#{presentation.id}"}= presentation.title
-
-%h2 Palestras não-confirmadas
-
-- if @other_presentations.empty?
-	%p Nenhuma até o momento.
-
-- else
-	%table
-
-		%tbody
-			- @other_presentations.each do |presentation|
-				%tr
+					%td= presentation.author
 					%td
-						%a{:href => "/presentation/#{presentation.id}"}= presentation.title
+						%input{:type => :checkbox, :id => participant.id, :class => "participant_check"}
+
+%script{:type => "type/javascript", :src => "/js/participants.js"}

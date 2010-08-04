@@ -1,0 +1,35 @@
+@import mixins.sass
+
+$very_light_orange: #fff7e8 
+$light_orange: #ffe4b2
+$orange: #ffa90c
+$black: #000000
+
+body
+	background-color: $very_light_orange
+
+h1
+	color: $orange
+	text-shadow: $black 1px 1px 3px
+
+.content
+	margin: 0 auto
+	width: 800px
+	height: 600px 
+
+.boxes
+	width: 100%
+	div
+		width: 350px
+		height: 190px
+		background-color: $light_orange
+		border-radius: 7px
+		.vertical-align
+			display: table-cell
+			vertical-align: middle
+
+.registration
+	float: left
+
+.proposals
+	float: right
