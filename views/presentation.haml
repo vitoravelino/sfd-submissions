@@ -1,6 +1,6 @@
 %h2 Que tal palestrar no evento?
 
-- if @errors.present?
+- if !@errors.nil?
 	
 	%ul.errors
 		- @errors.each do |error|

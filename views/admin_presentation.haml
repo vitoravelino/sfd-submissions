@@ -1,0 +1,27 @@
+%h2 Palestras confirmadas
+
+- if @confirmed_presentations.empty?
+	%p Nenhuma até o momento.
+
+- else
+	%table
+	
+		%tbody
+			- @confirmed_presentations.each do |presentation|			
+				%tr
+					%td
+						%a{:href => "/presentation/#{presentation.id}"}= presentation.title
+
+%h2 Palestras não-confirmadas
+
+- if @other_presentations.empty?
+	%p Nenhuma até o momento.
+
+- else
+	%table
+
+		%tbody
+			- @other_presentations.each do |presentation|
+				%tr
+					%td
+						%a{:href => "/presentation/#{presentation.id}"}= presentation.title

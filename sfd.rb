@@ -108,6 +108,18 @@ post '/presentation' do
 	end
 end
 
+get '/admin/presentation' do
+	@confirmed_presentations = Presentation.all(:confirmed => true)
+	@other_presentations = Presentation.all(:confirmed => false)
+	haml :admin_presentation
+end
+
+get '/admin/participant' do
+	@confirmed_participants = Participant.all(:present => true)
+	@other_participants = Participant.all(:present => false)
+	haml :admin_participant
+end
+
 get '/certificate' do
 	haml :certificate
 end

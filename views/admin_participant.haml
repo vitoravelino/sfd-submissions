@@ -1,0 +1,34 @@
+%h2 Participantes presentes
+
+- if @confirmed_participants.empty?
+	%p Nenhum até o momento.
+
+- else
+	%table
+		%thead
+			%tr
+				%th Nome
+				%th Email
+
+		%tbody
+			- @confirmed_participants.each do |participant|			
+				%tr
+					%td= participant.name
+					%td= participant.email
+
+%h2 Participantes não presentes
+
+- if @other_participants.empty?
+	%p Nenhum até o momento.
+
+- else
+	%table
+		%thead
+			%tr
+				%th Nome
+				%th Email
+		%tbody
+			- @other_participants.each do |participant|
+				%tr
+					%td= participant.name
+					%td= participant.email
