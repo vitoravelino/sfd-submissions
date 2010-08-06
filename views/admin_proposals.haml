@@ -1,0 +1,23 @@
+%h2 Palestras
+%h3 #{@proposals.length} submissões, #{@confirmed} aceitas
+
+- if @proposals.empty?
+	%p Nenhuma até o momento.
+
+- else
+	%table
+		%thead
+			%tr
+				%th Título
+				%th Palestrante
+				%th Confirmada?
+		%tbody
+			- @proposals.each do |proposal|			
+				%tr
+					%td
+						%a{:href => "/proposal/#{proposal.id}"}= proposal.title
+					%td= proposal.author
+					%td
+						%input{:type => :checkbox, :id => proposal.id, :class => "proposal_check"}
+
+%script{:type => "type/javascript", :src => "/js/proposals.js"}
