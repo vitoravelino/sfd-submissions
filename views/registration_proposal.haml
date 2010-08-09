@@ -8,7 +8,7 @@
 
 %p Preencha o formulário abaixo:
 
-%form{:action => "/registration/proposal", :method => "post"}
+%form{:action => "/submissao", :method => "post"}
 	%fieldset
 		%label{:for => "author"} Nome completo:
 		%input{:type => "text", :name => "author"}/
@@ -21,5 +21,7 @@
 		%br/
 		%label{:for => "description"} Descrição:
 		%textarea{:name => "description"}
+		%label{:for => "slides"} Link para slides:
+		%input{:type => "text", :name => "slides"}/
 		%br/
 		%input{:type => "submit", :value => "Submeter!"}/

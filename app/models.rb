@@ -19,6 +19,7 @@ class Proposal
   property :email, String, :required => true, :format => :email_address
   property :title, String, :required => true
   property :description, Text, :required => true
+	property :link, String, :required => true
   property :confirmed, Boolean, :default => false
 end
 
