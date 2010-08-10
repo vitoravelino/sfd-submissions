@@ -43,8 +43,8 @@ get '/submissao' do
   haml :registration_proposal
 end
 
-post '/subsmissao' do
-  proposal = Proposal.create(:author => params[:author], :email => params[:email], :title => params[:title], :description => params[:description])
+post '/submissao' do
+  proposal = Proposal.create(:author => params[:author], :email => params[:email], :title => params[:title], :description => params[:description], :link => params[:slides])
   if proposal.save
     flash[:notice] = "Proposta de palestra submetida com sucesso!"
     redirect '/'
@@ -58,6 +58,14 @@ get '/admin/propostas' do
   @proposals = Proposal.all(:order => [ :confirmed.desc, :title.asc ])
   @confirmed = Proposal.all(:confirmed => true).length
   haml :admin_proposals
+end
+
+post '/admin/proposta/:id' do
+	puts '------------------'
+	puts params[:checked]
+	puts params[:id]
+	puts '------------------'
+	redirect '/admin/propostas'
 end
 
 get '/admin/inscricoes' do
