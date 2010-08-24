@@ -1,7 +1,7 @@
 %h2 Que tal palestrar no evento?
 
 - if !@errors.nil?
-	
+
 	%ul.errors
 		- @errors.each do |error|
 			%li= error
@@ -21,7 +21,6 @@
 		%br/
 		%label{:for => "description"} Descrição:
 		%textarea{:name => "description"}
-		%label{:for => "slides"} Link para slides:
-		%input{:type => "text", :name => "slides"}/
 		%br/
 		%input{:type => "submit", :value => "Submeter!"}/
+
