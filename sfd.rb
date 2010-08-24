@@ -29,7 +29,7 @@ get '/submissao' do
 end
 
 post '/submissao' do
-  proposal = Proposal.create(:author => params[:author], :email => params[:email], :title => params[:title], :description => params[:description], :link => params[:slides])
+  proposal = Proposal.create(:author => params[:author], :email => params[:email], :title => params[:title], :description => params[:description])
   if proposal.save
     flash[:notice] = "Proposta de palestra submetida com sucesso!"
     redirect '/'

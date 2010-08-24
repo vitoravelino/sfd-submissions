@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	$(".proposal_check").addClass("lala");
 
 	$(".participant_check").change(function() {
@@ -13,3 +13,4 @@ $(document).ready(function() {
 	});
 
 });
+
