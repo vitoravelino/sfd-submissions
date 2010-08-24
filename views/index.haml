@@ -1,9 +1,9 @@
-- [:notice, :message].each do |key| 
-	- unless flash[key].blank? 
-		%p{:class => "flash_#{key}"}= flash[key] 
+- [:notice, :message].each do |key|
+	- unless flash[key].blank?
+		%p{:class => "flash_#{key}"}= flash[key]
 
-%p Parágrafo para apresentação.
-%p O Software Freedom Day 2010 em Campina Grande será realizado na Universidade Federal de Campina Grande, UFCG, no Centro de Extensão José Farias.
+%p O Software Freedom Day (SFD) é um evento que acontece simultaneamente em diversas cidades do mundo em celebração ao Software Livre e de Código Aberto – também chamado de FOSS. O evento acontece desde 2004 e é organizado globalmente pela Software Freedom Internacional, uma organização sem fins lucrativos.
+%p Esta será a segunda vez que o evento se realizará em Campina Grande, Paraíba, através da organização do GESoL-CG (Grupo de Entusiastas de Software Livre de Campina Grande). O evento acontecerá no dia 18 de setembro na Faculdade Maurício de Nassau, que acolheu o evento e seu propósito com muita atenção e carinho.
 
 .boxes
 	.registration
@@ -16,3 +16,4 @@
 		.vertical-align
 			%p Você já está por dentro de tudo e gostaria de participar e colaborar com o evento palestrando? Não perca essa oportunidade:
 			%a{:href => "/submissao", :class => "highlight"} Submeta já!
+

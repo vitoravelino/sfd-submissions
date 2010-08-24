@@ -4,7 +4,6 @@ require 'rubygems'
 require 'sinatra'
 require 'app/config'
 require 'app/models'
-#require 'app/helpers'
 require 'haml'
 require 'sass'
 
@@ -19,24 +18,13 @@ get '/' do
   haml :index
 end
 
+get '/agenda' do
+	haml :schedule
+end
+
 get '/proposta/:id' do |id|
   @proposal = Proposal.get(id)
   haml :proposal
-end
-
-get '/inscricao' do
-  haml :registration_participant
-end
-
-post '/inscricao' do
-  participant = Participant.create(:email => params[:email], :name => params[:name])
-  if participant.save
-    flash[:notice] = "Você está inscrito para participar do SFD 2010 - Campina Grande!"
-    redirect '/'
-  else
-    @errors = participant.errors
-    haml :registration_participant
-  end
 end
 
 get '/submissao' do
@@ -68,27 +56,39 @@ post '/admin/proposta/:id' do
 	redirect '/admin/propostas'
 end
 
-get '/admin/inscricoes' do
-  @participants = Participant.all(:order => [ :present.desc, :name.asc ])
-  @presents = Participant.all(:present => true).length
-  haml :admin_participants
-end
+#get '/certificado' do
+#	haml :certificate
+#end
 
-get '/certificado' do
-	haml :certificate
-end
+#get '/certificado/:email' do
+#	@name = Participant.get(:email => params[:email])
+#	haml :certificate_pdf, :layout => false
+#end
 
-get '/certificado/:email' do
-	@name = Participant.get(:email => params[:email])
-	haml :certificate_pdf, :layout => false
-end
+#post '/certificado-sfd2010.pdf' do
+#	content_type 'application/pdf'
+#	kit = PDFKit.new('http://localhost:4567/certificate/:name')
+#	kit.to_pdf
+#end
 
-post '/certificado-sfd2010.pdf' do
-	content_type 'application/pdf'
-	kit = PDFKit.new('http://localhost:4567/certificate/:name')
-	kit.to_pdf
-end
+#get '/inscricao' do
+#  haml :registration_participant
+#end
 
-get '/agenda' do
-	haml :schedule
-end
+#post '/inscricao' do
+#  participant = Participant.create(:email => params[:email], :name => params[:name])
+#  if participant.save
+#    flash[:notice] = "Você está inscrito para participar do SFD 2010 - Campina Grande!"
+#    redirect '/'
+#  else
+#    @errors = participant.errors
+#    haml :registration_participant
+#  end
+#end
+
+#get '/admin/inscricoes' do
+#  @participants = Participant.all(:order => [ :present.desc, :name.asc ])
+#  @presents = Participant.all(:present => true).length
+#  haml :admin_participants
+#end
+

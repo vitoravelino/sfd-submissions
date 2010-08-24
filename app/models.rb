@@ -4,13 +4,13 @@ require 'dm-validations'
 
 DataMapper.setup(:default, @db)
 
-class Participant
-  include DataMapper::Resource
-  property :id, Serial
-  property :email, String, :required => true, :unique => true, :format => :email_address
-  property :name, String, :required => true
-  property :present, Boolean, :default => false
-end
+#class Participant
+#  include DataMapper::Resource
+#  property :id, Serial
+#  property :email, String, :required => true, :unique => true, :format => :email_address
+#  property :name, String, :required => true
+#  property :present, Boolean, :default => false
+#end
 
 class Proposal
   include DataMapper::Resource
@@ -25,3 +25,4 @@ end
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
+

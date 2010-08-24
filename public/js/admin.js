@@ -1,12 +1,15 @@
 $(document).ready(function() {
+	
+	$(".proposal_check").addClass("lala");
 
-	$('.participant_check').click(function() {
-		$.post('/admin/participant/' + $(this).id, {checked: $(this).val()});
+	$(".participant_check").change(function() {
+		alert('1');
+		//$.post('/admin/participant/' + $(this).id, {checked: $(this).val()})
 	});
 
-	$('.proposal_check').click(function() {
-		alert('213');
-		$.post('/admin/proposal/' + $(this).id, {checked: $(this).val()});
+	$(".proposal_check").change(function() {
+		alert('2');
+		//$.post('/admin/proposal/' + $(this).id, {checked: $(this).val()})
 	});
 
 });
