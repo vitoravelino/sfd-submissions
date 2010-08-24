@@ -5,9 +5,15 @@
 		%meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8'}/
 		%link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheet/application.css"}
 		%link{:rel => "stylesheet", :type => "text/css", :href => "http://fonts.googleapis.com/css?family=Droid+Sans"}
+
 	%body
 
 		.content
 			%h1 Software Freedom Day - Campina Grande
+			%ul
+				%li
+					%a{:href => '/'} Início
+				%li
+					%a{:href => '/submissao'} Submissão de propostas
 			= yield
 

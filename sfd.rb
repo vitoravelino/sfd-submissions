@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
-require 'app/config'
-require 'app/models'
+require 'environment'
+require 'models'
 require 'haml'
 require 'sass'
 
@@ -12,7 +12,7 @@ end
 
 get '/' do
   @proposals = Proposal.all.length
-  haml :index
+  haml :index, :layout => false
 end
 
 get '/agenda' do
@@ -46,10 +46,10 @@ get '/admin/propostas' do
 end
 
 post '/admin/proposta/:id' do
-	puts '------------------'
-	puts params[:checked]
-	puts params[:id]
-	puts '------------------'
-	redirect '/admin/propostas'
+  puts '------------------'
+  puts params[:checked]
+  puts params[:id]
+  puts '------------------'
+  redirect '/admin/propostas'
 end
 

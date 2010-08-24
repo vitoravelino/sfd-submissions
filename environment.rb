@@ -12,7 +12,7 @@ end
 
 configure :production do
   require 'dm-postgres-adapter'
-	@db = ENV['DATABASE_URL']
+  @db = ENV['DATABASE_URL']
 
   not_found do
     haml "We're so sorry, but we don't know what is this."
