@@ -34,9 +34,6 @@ a, a:hover, a:visited
 	color: $black
 	text-decoration: none
 
-a:hover
-	border-bottom: 2px solid $orange
-
 p
 	padding: 5px 0
 	text-align: justify
@@ -55,28 +52,44 @@ form
 		width: 160px
 
 	input[type='text'], textarea
+		margin-top: 3px
 		padding: 3px 2px
 		width: 254px
 		border: 1px solid #ccc
+
+	select
+		margin-top: 3px
 
 	input[type='submit']
 		float: right
 
 	textarea
 		height: 200px
-		margin-top: 2px
 
 .content
 	margin: 0 auto
 	width: 800px
 	height: 600px
 
+	a
+		border-bottom: 2px $orange dotted
+
 ul.menu
 	padding: 10px
 	background-color: $light_orange
 	@include border-radius(7px)
 
+	a
+		border: none
+
 	li
 		margin-left: 10px
 		display: inline
+
+tr
+	background-color: $light_orange
+
+td, th
+	padding: 3px 10px
+	text-align: center
 

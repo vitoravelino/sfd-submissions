@@ -19,6 +19,12 @@
 		%label{:for => "title"} Título da palestra:
 		%input{:type => "text", :name => "title"}/
 		%br/
+		%label{:for => "category"} Categoria:
+		%select{:name => "category"}
+			%option{:value => "beginner"} Iniciante
+			%option{:value => "advanced"} Avançado
+			%option{:value => "tutorial"} Tutorial
+		%br/
 		%label{:for => "description"} Descrição:
 		%textarea{:name => "description"}
 		%br/

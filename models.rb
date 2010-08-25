@@ -15,6 +15,7 @@ class Proposal
   				 }
   property :title, String, :required => true, :message => "Precisamos do título da sua proposta"
   property :description, Text, :required => true, :message => "Precisamos de uma descrição da sua proposta"
+  property :category, Text, :required => true, :message => "Precisamos de uma descrição da sua proposta"
   property :confirmed, Boolean, :default => false
 end
 
