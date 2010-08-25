@@ -12,7 +12,7 @@ end
 
 get '/' do
   @proposals = Proposal.all.length
-  haml :index, :layout => false
+  haml :index
 end
 
 get '/agenda' do
@@ -31,7 +31,7 @@ end
 post '/submissao' do
   proposal = Proposal.create(:author => params[:author], :email => params[:email], :title => params[:title], :description => params[:description])
   if proposal.save
-    flash[:notice] = "Proposta de palestra submetida com sucesso!"
+    flash[:notice] = "Proposta submetida com sucesso!"
     redirect '/'
   else
     @errors = proposal.errors

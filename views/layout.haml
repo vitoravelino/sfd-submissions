@@ -10,10 +10,12 @@
 
 		.content
 			%h1 Software Freedom Day - Campina Grande
-			%ul
+			%ul{:class => "menu"}
 				%li
 					%a{:href => '/'} Início
 				%li
-					%a{:href => '/submissao'} Submissão de propostas
+					%a{:href => '/agenda'} Agenda
+				%li
+					%a{:href => '/submissao'} Submissão
 			= yield
 
