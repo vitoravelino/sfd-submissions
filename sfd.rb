@@ -51,7 +51,7 @@ get '/admin/csv' do
 end
 
 get '/admin/:token' do
-	if params[:token] == 'sfd123'
+	if params[:token] == 'your_token'
 		session[:has_permission] = true
 		@proposals = Proposal.all(:order => [ :category.desc, :title.asc ])
 		haml :admin_proposals
