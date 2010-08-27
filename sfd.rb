@@ -35,20 +35,28 @@ post '/submissao' do
   end
 end
 
-get '/admin' do
-  @proposals = Proposal.all(:order => [ :category.desc, :title.asc ])
-  haml :admin_proposals
+get '/admin/csv' do
+	if session[:has_permission]
+		proposals = Proposal.all(:order => [ :category.desc, :title.asc ])
+		headers "Content-Disposition" => "attachment;filename=proposals.csv",
+						"Content-Type" => "application/octet-stream"
+		result = ""
+		proposals.each do |proposal|
+		  result << "\"#{proposal.category}\";\"#{proposal.title}\";\"#{proposal.description}\"\n"
+		end
+		result
+	else
+		redirect '/'
+	end
 end
 
-get '/test' do
-	proposals = Proposal.all(:order => [ :category.desc, :title.asc ])
-	headers "Content-Disposition" => "attachment;filename=proposals.csv",
-  				"Content-Type" => "application/octet-stream"
-  result = ""
-  proposals.each do |proposal|
-    result << "\"#{proposal.category}\";\"#{proposal.title}\";\"#{proposal.description}\"\n"
-  end
-	puts result
-  result
+get '/admin/:token' do
+	if params[:token] == 'sfd123'
+		session[:has_permission] = true
+		@proposals = Proposal.all(:order => [ :category.desc, :title.asc ])
+		haml :admin_proposals
+ 	else
+ 		redirect '/'
+	end
 end
 

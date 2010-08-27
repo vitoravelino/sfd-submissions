@@ -1,10 +1,12 @@
 %h2 Palestras
-%h3 #{@proposals.length} submissões, #{@confirmed} aceitas
 
 - if @proposals.empty?
 	%p Nenhuma até o momento.
 
 - else
+	%a{:href => "/admin/csv"} Gerar CSV
+	%h3 #{@proposals.length} submissões
+
 	%table
 		%thead
 			%tr
